@@ -12,3 +12,13 @@
 .container-galery-product {
   display: flex;
 }
+.container-products {
+  display: flex;
+  flex-direction: row;
+}
+.img-controller {
+  height: 247px;
+}
+.img-printer {
+  height: 140px;
+}
