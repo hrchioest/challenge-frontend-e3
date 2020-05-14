@@ -1,0 +1,14 @@
+.galery {
+  display: flex;
+  flex-direction: column;
+}
+.trio-images {
+  display: flex;
+  flex-direction: row;
+}
+.img-trio {
+  height: 61px;
+}
+.container-galery-product {
+  display: flex;
+}
