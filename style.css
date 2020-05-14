@@ -14,7 +14,6 @@
 }
 .container-products {
   display: flex;
-  flex-direction: row;
 }
 .img-controller {
   height: 247px;
