@@ -49,14 +49,25 @@ body {
 .cart span {
   background-color: #b5190d;
   color: #eee;
-  padding: 5px 7px;
+  padding: 1px 6px;
+  font-size: 13px;
 }
 .cart ion-icon {
   font-size: 31px;
 }
 
-.cart .badge {
+.cart button {
+  position: relative;
+}
+.cart button .cart-badge {
   border-radius: 50%;
+  position: relative;
+  bottom: 17px;
+}
+.cart button ion-icon {
+  position: absolute;
+  left: 3px;
+  top: 7px;
 }
 
 header {
@@ -78,6 +89,60 @@ header .menu ul > li > a {
   color: white;
   font-size: 16px;
   font-weight: 300;
+}
+
+article h1 {
+  font-size: 27px;
+  text-transform: uppercase;
+  padding-top: 40px;
+}
+article .container-imgs {
+  padding: 40px 30px 20px 60px;
+}
+article .container-imgs .container-img {
+  border: 1px solid;
+}
+article .product-form p {
+  font-size: 15px;
+  color: #b5190d;
+  margin: auto;
+}
+article .product-form .prices .price {
+  font-size: 18px;
+  padding-right: 3px;
+}
+article .product-form .prices .price-current {
+  font-size: 31px;
+  color: #b5190d;
+  padding-right: 6px;
+  font-weight: bold;
+}
+article .product-form .prices .price-old {
+  text-decoration: line-through;
+}
+article .product-form .prices .price-desc {
+  color: #249401;
+}
+article .product-form .text-cuotas {
+  font-size: 14px;
+  padding-right: 18px;
+}
+article .product-form .text-cuotas > .text-bold {
+  font-weight: bold;
+}
+article .product-form .text-cuotas ~ a {
+  font-size: 14px;
+}
+article .product-form .text-cuotas span {
+  font-size: 15px;
+}
+
+.text-link {
+  text-decoration: underline;
+}
+
+.product-form .container-button-icons ion-icon {
+  font-size: 29px;
 }
 
 /*# sourceMappingURL=style.css.map */
