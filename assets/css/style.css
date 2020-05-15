@@ -1,16 +1,83 @@
-.galery {
+body {
+  font-family: "Open Sans", sans-serif;
 }
-.trio-images {
+
+.logo {
+  font-size: 50px;
+  font-weight: 800;
+  color: #b5190d;
 }
-.img-trio {
+@media (max-width: 599px) {
+  .logo {
+    font-size: 25px;
+  }
 }
-.img-controller {
+
+.search input,
+.search button {
+  border-radius: 20px;
 }
-.img-printer {
+.search input {
+  padding-left: 25px;
+  box-shadow: -1px 2px 5px 0px #ccc;
+  border: 1px solid #9c9c9c;
 }
-.container-support {
+.search button {
+  background-color: white;
+  border-left-color: #ccc;
+  box-shadow: 1px 2px 5px 0px #ccc;
+  padding: 5px 13px 0px 9px;
 }
-footer {
+.search button ion-icon {
+  font-size: 23px;
 }
-.conteiner-footer-legal {
+
+.favorite ion-icon {
+  font-size: 28px;
 }
+
+.user .person {
+  font-size: 26px;
+}
+.user span {
+  font-size: 14px;
+}
+.user .chevro {
+  font-size: 14px;
+}
+
+.cart span {
+  background-color: #b5190d;
+  color: #eee;
+  padding: 5px 7px;
+}
+.cart ion-icon {
+  font-size: 31px;
+}
+
+.cart .badge {
+  border-radius: 50%;
+}
+
+header {
+  background-color: #eee;
+}
+header .menu {
+  background-color: #b5190d;
+}
+header .menu ul > li {
+  padding: 2px 10px;
+}
+header .menu ul > li.active {
+  background-color: #9c0f08;
+  text-transform: uppercase;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+header .menu ul > li > a {
+  color: white;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+/*# sourceMappingURL=style.css.map */
