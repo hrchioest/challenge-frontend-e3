@@ -1,0 +1,148 @@
+.price {
+  font-size: $size-description-desc;
+  padding-right: 3px;
+
+  &.price-current {
+    font-size: $size-description-price;
+    color: $color-cherry;
+    padding-right: 6px;
+    font-weight: bold;
+  }
+  &.price-old {
+    text-decoration: line-through;
+  }
+  &.price-desc {
+    color: $color-green;
+  }
+}
+
+.product {
+  h1 {
+    font-size: $size-title-main;
+    text-transform: uppercase;
+  }
+  .galery {
+    .thumb {
+      padding: 2px;
+      &.active {
+        border: 1px solid $color-cherry-shadow;
+      }
+    }
+
+    @include for-desktop-up {
+      font-size: $size-title-submain;
+    }
+  }
+  .product-form {
+    p {
+      font-size: $size-description-principal;
+      color: $color-cherry;
+      margin: auto;
+    }
+  }
+
+  .text-cuotas {
+    font-size: $size-description-secondary;
+    padding-right: 18px;
+    & > .text-bold {
+      font-weight: bold;
+    }
+    & ~ a {
+      font-size: $size-description-secondary;
+    }
+    & span {
+      font-size: $size-description-principal;
+    }
+  }
+
+  .btn-buy {
+    background-color: $color-cherry;
+    color: white;
+    font-weight: 300;
+    padding: 15px 0;
+    border-radius: 0;
+  }
+
+  .payment,
+  .free-shipping,
+  .shipping-option {
+    .text,
+    .action {
+      font-size: $size-description-principal;
+    }
+    .text {
+      font-weight: 700;
+    }
+    .action {
+      text-decoration: underline;
+    }
+  }
+
+  .info {
+    margin-top: 30px;
+    margin-bottom: 40px;
+    .nav {
+      a.nav-link {
+        padding: 0px;
+        font-size: $size-tab-title;
+        color: black;
+        margin-right: 20px;
+        margin-left: 20px;
+        padding-bottom: 10px;
+
+        @include for-phone-only {
+          font-size: $size-tab-title-mobile;
+        }
+
+        &.active {
+          border-bottom: 4px solid $color-cherry;
+          color: $color-cherry;
+        }
+      }
+    }
+    .tab-content {
+      margin-top: 25px;
+      p {
+        font-size: 15px;
+        line-height: 1.8rem;
+        color: #666;
+      }
+    }
+  }
+}
+.text-underline {
+  text-decoration: underline;
+}
+
+.opacity-50 {
+  opacity: 0.5;
+}
+
+.product-form {
+  .container-button-icons {
+    ion-icon {
+      font-size: 29px;
+    }
+  }
+}
+
+.label {
+  justify-content: center;
+  display: flex;
+  margin-right: 10px;
+  width: 113px;
+  height: 22px;
+  position: relative;
+  background: $color-yellow;
+  span {
+    font-size: 14px;
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    right: 0;
+    border-right: 4px solid white;
+    border-top: 11px solid transparent;
+    border-bottom: 11px solid transparent;
+  }
+}

@@ -9,58 +9,39 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
-  <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
-
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap"
     rel="stylesheet" />
-  <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.esm.js"></script>
+
+  <link rel="stylesheet" href="assets/css/style.css" type="text/css">
   <title>Challenge</title>
 </head>
 
 <body>
+  <!-- Loading -->
+  <div class="js-loading loading">
+    <strong>Cargando...</strong>
+    <div class="spinner-border" role="status" aria-hidden="true"></div>
+  </div>
+  <!-- Alert add cart -->
+  <div class="js-alert-add-cart alert-add-cart alert alert-success alert-dismissible fade" role="alert">
+    <strong>Excelente!</strong> Tu producto ya se añadío al carrito de comprar
+    😃👍.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+
   <!-- Block Header -->
   <header>
-    <nav class="navbar navbar-expand-lg p-0 flex-wrap-reverse">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
-        aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse menu" id="navbarsExampleDefault">
-        <div class="container-fluid">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item dropdown active">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Producto
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="#">Prueba</a>
-              </div>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="#">Reyes Magos</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="#">Ofertas Camping</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="#">Promos Aires</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Lanzamientos</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="col-9">
+    <!-- SubBloque Main -->
+    <main class="navbar">
+      <div class="col-lg-9 col-sm-12">
         <div class="row">
-          <div class="col-4 col-sm-3">
+          <div class="col-3 col-sm-3">
             <a class="navbar-brand logo" href="#">LOGO</a>
           </div>
-          <div class="col-8 col-sm-9 d-flex align-items-center">
+          <div class="col-7 col-lg-9 d-flex align-items-center">
             <div class="input-group search">
               <input type="text" class="form-control" placeholder="Buscar" />
               <div class="input-group-append">
@@ -70,51 +51,96 @@
               </div>
             </div>
           </div>
+          <div class="col-2 d-lg-none d-flex justify-content-end">
+            <button class="navbar-toggler navbar-light" type="button" data-toggle="collapse"
+              data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
         </div>
       </div>
       <div class="col-lg-3 col-md-12">
-        <div class="row container">
-          <div class="col-3">
-            <span class="favorite">
+        <div class="row">
+          <div class="col-3 favorite">
+            <span>
               <ion-icon name="heart-outline"></ion-icon>
             </span>
           </div>
-          <div class="col-6">
-            <div class="user d-flex">
-              <ion-icon name="person-outline" class="person"></ion-icon>
-              <span>Mi cuenta</span>
-              <ion-icon name="chevron-down-outline" class="chevron"></ion-icon>
+          <div class="col-6 d-flex account">
+            <div class="dropdown">
+              <a class="btn dropdown-toggle" href="#" data-toggle="dropdown">
+                <ion-icon name="person-outline"></ion-icon>
+                Mi cuenta
+              </a>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="#"> Mi perfil</a>
+                <a class="dropdown-item" href="#">Cerrar sessión</a>
+              </div>
             </div>
           </div>
-          <div class="col-3">
+          <div class="col-3 d-flex justify-content-end">
             <span class="cart">
               <button type="button" class="btn">
-                <span class="cart-badge">3</span>
+                <span class="js-count-cart cart-badge">3</span>
                 <ion-icon name="cart-outline"></ion-icon>
               </button>
             </span>
           </div>
         </div>
       </div>
+    </main>
+
+    <!-- SubBloque Menu -->
+    <nav class="navbar navbar-expand-lg menu">
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <div class="container-fluid">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown active">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Productos
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="#">Prueba</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Reyes Magos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Ofertas Camping</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Promos Aires</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Lanzamientos</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </nav>
   </header>
-  <div class="container-fluid">
-    <!-- Block Article -->
-    <article>
+
+  <div class="container">
+    <!-- Block Product -->
+    <article class="product pt-4">
       <div class="row">
-        <div class="col-lg-5 col-md-12 container-imgs">
-          <div class="container-img">
+        <div class="col-lg-5 col-md-12">
+          <div class="border pb-3 mb-3 galery">
             <img class="w-100" src="assets/image/controller.png" alt="" />
-          </div>
-          <div class="row justify-content-md-center">
-            <div class="col-2">
-              <img class="w-100" src="assets/image/controller.png" alt="" />
-            </div>
-            <div class="col-2">
-              <img class="w-100" src="assets/image/controller.png" alt="controller" />
-            </div>
-            <div class="col-2">
-              <img class="w-100" src="assets/image/controller.png" alt="controller" />
+
+            <div class="row justify-content-center">
+              <div class="col-2">
+                <img class="w-100 thumb active" src="assets/image/controller.png" alt="imagen 1" />
+              </div>
+              <div class="col-2">
+                <img class="w-100 thumb" src="assets/image/controller.png" alt="imagen 2" />
+              </div>
+              <div class="col-2">
+                <img class="w-100 thumb" src="assets/image/controller.png" alt="imagen 3" />
+              </div>
             </div>
           </div>
         </div>
@@ -122,186 +148,202 @@
           <div class="product-form">
             <h1>Aire acondicionado split bgh inverter bsih45cp</h1>
             <p>Precio en 1 pago</p>
-            <div class="prices">
+            <div>
               <span class="price price-current">$ 27.499</span>
-              <span class="price price-old">$ 31.890</span>
+              <span class="price price-old opacity-50">$ 31.890</span>
               <span class="price price-desc">30% OFF</span>
             </div>
-            <div class="media pt-3">
+            <div class="media pt-3 payment">
               <div class="container-card">
-                <img src="assets/image/card.png" alt="card" />
+                <img src="assets/image/card.svg" alt="Tarjeta de Crédito" />
               </div>
-              <div class="text-cuotas">
+              <div class="px-2 text-cuotas">
                 <span class="text-bold">12</span>
                 <span> cuotas x </span><span class="text-bold">$ 2.291</span>
               </div>
-              <a class="text-link" href="#">Ver cuotas y medios de pago</a>
+              <a class="action" href="#">Ver cuotas y medios de pago</a>
             </div>
-            <div class="row container-button-icons">
-              <div class="col-4 media pt-3">
-                <button type="button" class="btn btn-primary btn-lg btn-block">Comprar</button>
+            <div class="row container-button-icons pt-5">
+              <div class="col-5">
+                <button type="button" class="js-add-cart btn btn-lg btn-block btn-buy">
+                  Comprar
+                </button>
               </div>
-              <div class="col-3">
-                <div class="d-flex">
-                  <span>
-                    <ion-icon name="heart-outline"></ion-icon>
-                  </span>
-                  <span>
-                    <ion-icon name="mail-open"></ion-icon>
-                  </span>
+              <div class="col-3 p-0 media justify-content-start align-items-center">
+                <div class="mx-2">
+                  <ion-icon name="heart-outline" role="img" class="md hydrated opacity-50" aria-label="heart outline">
+                  </ion-icon>
+                </div>
+                <div class="mx-2">
+                  <ion-icon name="mail-open" role="img" class="md hydrated opacity-50" aria-label="mail open">
+                  </ion-icon>
                 </div>
               </div>
             </div>
           </div>
-          <div class="shipping">
-            <div class="media pt-3">
-              <span>Envío Gratis</span>
-              <a class="text-link" href="#">ver zonas disponibles</a>
+          <div class="border-top mt-4 shipping">
+            <div class="media pt-3 free-shipping">
+              <div class="label">
+                <span>Envío Gratis</span>
+              </div>
+              <a class="action" href="#">ver zonas disponibles</a>
             </div>
             <div class="row">
-              <div class="col-4">
-                <img class="media pt-3">
-                <img alt="32x32" class="mr-2 rounded"
-                  src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2232%22%20height%3D%2232%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_17216127ff7%20text%20%7B%20fill%3A%23007bff%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A2pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_17216127ff7%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20fill%3D%22%23007bff%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2212.296875%22%20y%3D%2216.9%22%3E32x32%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"
-                  data-holder-rendered="true" />
-                <p class="pb-3 mb-0">
-                  <span class="d-block text-gray-dark">Retiro Gratis por sucursal</span>
-                  <a class="text-link" href="#">Ver sucursales</a>
-                </p>
-                </img>
-              </div>
-              <div class="col-4">
-                <div class="media pt-3">
-                  <img alt="32x32" class="mr-2 rounded"
-                    src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2232%22%20height%3D%2232%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_17216127ff7%20text%20%7B%20fill%3A%23007bff%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A2pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_17216127ff7%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20fill%3D%22%23007bff%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2212.296875%22%20y%3D%2216.9%22%3E32x32%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"
-                    data-holder-rendered="true" />
+              <div class="col-sm col-md-5">
+                <div class="media pt-3 shipping-option">
+                  <img class="pr-3" src="assets/image/store.svg" alt="Sucursal" />
                   <p class="pb-3 mb-0">
-                    <span class="d-block text-gray-dark">Envio a todo el país</span>
-                    <a class="text-link" href="#">Calcular costo de envío</a>
+                    <span class="d-block text">Retiro Gratis por sucursal</span>
+                    <a class="action" href="#">Ver sucursales</a>
                   </p>
                 </div>
               </div>
-
-              <div class="col-4">
-                <span></span>
-                <span></span>
-                <a href="#"></a>
+              <div class="col-sm col-md-5">
+                <div class="media pt-3 shipping-option">
+                  <img class="pr-3" src="assets/image/delivery.svg" alt="Sucursal" />
+                  <p class="pb-3 mb-0">
+                    <span class="d-block text">Envíos a todo el país</span>
+                    <a class="action" href="#">Calcular costo de envío</a>
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        </section>
-        <section class="info">
-          <div>
-            <span></span>
-            <span></span>
-          </div>
+      </div>
 
-          <ul class="nav justify-content-center">
-            <li class="nav-item">
-              <a class="nav-link active" href="#">Descripción</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Ficha Técnica</a>
-            </li>
-          </ul>
-
-          <div>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget
-              felis tristique augue tristique dictum vitae vitae sem. Fusce in
-              ante cursus, sollicitudin augue sed, consequat purus. Nunc
-              faucibus velit eu luctus maximus. Vivamus ac dictum mi, sit amet
-              efficitur odio. Quisque non mi velit. Maecenas lobortis odio eu
-              lorem finibus fermentum. Curabitur quis nibh id est dignissim
-              hendrerit sed egestas metus. Phasellus id turpis orci. Maecenas at
-              lacus lectus. Nunc interdum tellus vel mauris dapibus, ut lacinia
-              nibh dignissim. Suspendisse sed semper massa, eget aliquam arcu.
-            </p>
-            <p>
-              Sed in ex elementum, tempor nibh ut, sodales mauris. In sit amet
-              condimentum orci. Mauris sed tristique mi, vitae porttitor leo.
-              Mauris commodo laoreet magna sit amet ullamcorper. Phasellus
-              auctor justo eu varius condimentum. Ut vulputate condimentum
-              malesuada. Donec sagittis in ipsum ac faucibus
-            </p>
-          </div>
-        </section>
+      <!-- Block Information -->
+      <div class="row">
+        <div class="col">
+          <section class="info">
+            <ul class="nav justify-content-center">
+              <li class="nav-item">
+                <a class="nav-link active" href="#list-description" data-toggle="tab">Descripción</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#list-tech-detaills" data-toggle="tab">Ficha Técnica</a>
+              </li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane fade show active" id="list-description">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                  eget felis tristique augue tristique dictum vitae vitae sem.
+                  Fusce in ante cursus, sollicitudin augue sed, consequat
+                  purus. Nunc faucibus velit eu luctus maximus. Vivamus ac
+                  dictum mi, sit amet efficitur odio. Quisque non mi velit.
+                  Maecenas lobortis odio eu lorem finibus fermentum. Curabitur
+                  quis nibh id est dignissim hendrerit sed egestas metus.
+                  Phasellus id turpis orci. Maecenas at lacus lectus. Nunc
+                  interdum tellus vel mauris dapibus, ut lacinia nibh
+                  dignissim. Suspendisse sed semper massa, eget aliquam arcu.
+                </p>
+                <p>
+                  Sed in ex elementum, tempor nibh ut, sodales mauris. In sit
+                  amet condimentum orci. Mauris sed tristique mi, vitae
+                  porttitor leo. Mauris commodo laoreet magna sit amet
+                  ullamcorper. Phasellus auctor justo eu varius condimentum.
+                  Ut vulputate condimentum malesuada. Donec sagittis in ipsum
+                  ac faucibus
+                </p>
+              </div>
+              <div class="tab-pane fade show" id="list-tech-detaills">
+                <p>
+                  Phasellus id turpis orci. Maecenas at lacus lectus. Nunc
+                  interdum tellus vel mauris dapibus, ut lacinia nibh
+                  dignissim. Suspendisse sed semper massa, eget aliquam arcu.
+                </p>
+                <p>
+                  Sed in ex elementum, tempor nibh ut, sodales mauris. In sit
+                  amet condimentum orci. Mauris sed tristique mi, vitae
+                  porttitor leo. Mauris commodo laoreet magna sit amet
+                  ullamcorper. Phasellus auctor justo eu varius condimentum.
+                  Ut vulputate condimentum malesuada. Donec sagittis in ipsum
+                  ac faucibus
+                </p>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
     </article>
-    <!-- Block Aside -->
-    <aside>
+    <!-- Block More Product -->
+    <aside class="more-products">
       <div class="text-center">
         <h3>Más en esta categoría</h3>
       </div>
       <div class="container-fluid mb-4">
         <div class="row">
-          <div class="col-12 col-lg col-md-3 col-sm-6">
-            <img>
-            <img class="w-100" src="assets/image/controller.png" alt="" />
-            </img>
-            <div>
-              <span>Smart tv 43" hisense fhd + panel tv zanzini clean</span>
-            </div>
-            <div>
-              <span>$27.499</span>
-              <span>$31.890</span>
-              <span>30% OFF</span>
-            </div>
-          </div>
-          <div class="col-12 col-lg col-md-3 col-sm-6">
-            <img>
-            <img class="w-100" src="assets/image/printer.png" alt="" />
-            </img>
-            <div>
-              <span>Smart tv 43" hisense fhd + panel tv zanzini clean</span>
-            </div>
-            <div>
-              <span>$27.499</span>
-              <span>$31.890</span>
-              <span>30% OFF</span>
-            </div>
-          </div>
-          <div class="col-12 col-lg col-md-3 col-sm-6">
-            <div>
+          <div class="col-12 col-lg col-sm-6 product">
+            <div class="photo">
               <img class="w-100" src="assets/image/controller.png" alt="" />
             </div>
-            <div>
+            <div class="description">
               <span>Smart tv 43" hisense fhd + panel tv zanzini clean</span>
             </div>
             <div>
-              <span>$27.499</span>
-              <span>$31.890</span>
-              <span>30% OFF</span>
+              <span class="price price-current">$ 27.499</span>
+              <span class="price price-old opacity-50">$ 31.890</span>
+              <span class="price price-desc">30% OFF</span>
             </div>
           </div>
-          <div class="col-12 col-lg col-md-3 col-sm-6">
-            <img>
-            <img class="w-100" src="assets/image/controller.png" alt="" />
-            </img>
+          <div class="col-12 col-lg col-sm-6 product">
+            <div class="label free-shipping">
+              <span>Envío Gratis</span>
+            </div>
+            <div class="photo">
+              <img class="w-100" src="assets/image/printer.png" alt="" />
+            </div>
+            <div class="description">
+              <span>Smart tv 43" hisense fhd + panel tv zanzini clean</span>
+            </div>
             <div>
-              <div>
-                <span>Smart tv 43" hisense fhd + panel tv zanzini clean</span>
-              </div>
-              <div>
-                <span>$27.499</span>
-                <span>$31.890</span>
-                <span>30% OFF</span>
-              </div>
+              <span class="price price-current">$ 27.499</span>
+              <span class="price price-old opacity-50">$ 31.890</span>
+              <span class="price price-desc">30% OFF</span>
             </div>
           </div>
-          <div class="col-12 col-lg col-md-3 col-sm-6">
-            <img>
-            <img class="w-100" src="assets/image/printer.png" alt="" />
-            </img>
+          <div class="col-12 col-lg col-sm-6 product">
+            <div class="discount">
+              <div class="mount">20%</div>
+              <div class="text">OFF</div>
+            </div>
+            <div class="photo">
+              <img class="w-100" src="assets/image/controller.png" alt="" />
+            </div>
+            <div class="description">
+              <span>Smart tv 43" hisense fhd + panel tv zanzini clean</span>
+            </div>
             <div>
-              <div>
-                <span>Smart tv 43" hisense fhd + panel tv zanzini clean</span>
-              </div>
-              <div>
-                <span>$27.499</span>
-                <span>$31.890</span>
-                <span>30% OFF</span>
-              </div>
+              <span class="price price-current">$ 27.499</span>
+              <span class="price price-old opacity-50">$ 31.890</span>
+              <span class="price price-desc">30% OFF</span>
+            </div>
+          </div>
+          <div class="col-12 col-lg col-sm-6 product">
+            <div class="photo">
+              <img class="w-100" src="assets/image/controller.png" alt="" />
+            </div>
+            <div class="description">
+              <span>Smart tv 43" hisense fhd + panel tv zanzini clean</span>
+            </div>
+            <div>
+              <span class="price price-current">$ 27.499</span>
+              <span class="price price-old opacity-50">$ 31.890</span>
+              <span class="price price-desc">30% OFF</span>
+            </div>
+          </div>
+          <div class="col-12 col-lg col-sm-6 product">
+            <div class="photo">
+              <img class="w-100" src="assets/image/printer.png" alt="" />
+            </div>
+            <div class="description">
+              <span>Smart tv 43" hisense fhd + panel tv zanzini clean</span>
+            </div>
+            <div>
+              <span class="price price-current">$ 27.499</span>
+              <span class="price price-old opacity-50">$ 31.890</span>
+              <span class="price price-desc">30% OFF</span>
             </div>
           </div>
         </div>
@@ -309,58 +351,72 @@
     </aside>
   </div>
   <!-- Block Footer-->
-  <footer class="container pt-4 my-md-5 pt-md-5">
-    <div class="row">
-      <div class="col-12 col-md">
-        <div>
-          <span>icon-call</span>
-          <span>Atención Telefónica</span>
-          <span>0810-333-9470</span>
-          <span>(0236) 4421081</span>
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg support">
+          <div class="media">
+            <span class="icon">
+              <img src="assets/image/phone.svg" alt="Telefonos" />
+            </span>
+            <div class="description">
+              <div>Atención Telefónica</div>
+              <div class="phone">0810-333-9470</div>
+              <div class="phone">(0236) 4421081</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg info">
+          <h5>Centro de Ayuda</h5>
+          <ul class="list-unstyled text-small">
+            <li><a href="#">Medios de pago y envío</a></li>
+            <li><a href="#">Preguntas Frecuentes</a></li>
+            <li><a href="#">Política de Cambios</a></li>
+          </ul>
+        </div>
+        <div class="col-12 col-lg info">
+          <h5>Institucional</h5>
+          <ul class="list-unstyled text-small">
+            <li><a href="#">La Empresa</a></li>
+            <li><a href="#">Sucursales</a></li>
+            <li><a href="#">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="col-12 col-lg info">
+          <h5>Suscribite</h5>
+          <span>Recibí en tu email nuestras ofertas e ingresos</span>
+          <form class="suscribe">
+            <div class="form-row">
+              <div class="col-7">
+                <input type="text" class="form-control" name="" id="" placeholder="Email" />
+              </div>
+              <button type="button" class="btn">Enviar</button>
+            </div>
+          </form>
         </div>
       </div>
-      <div class="col-6 col-md">
-        <h5>Centro de Ayuda</h5>
-        <ul class="list-unstyled text-small">
-          <li><a class="text-muted" href="#">Medios de pago y envío</a></li>
-          <li><a class="text-muted" href="#">Preguntas Frecuentes</a></li>
-          <li><a class="text-muted" href="#">Política de Cambios</a></li>
-        </ul>
-      </div>
-      <div class="col-6 col-md">
-        <h5>Institucional</h5>
-        <ul class="list-unstyled text-small">
-          <li><a class="text-muted" href="#">La Empresa</a></li>
-          <li><a class="text-muted" href="#">Sucursales</a></li>
-          <li><a class="text-muted" href="#">Contacto</a></li>
-        </ul>
-      </div>
-      <input class="col-6 col-md">
-      <h5>Suscribite</h5>
-      <p>Recibí en tu email nuestras ofertas e ingresos</p>
-      <input type="text" name="" id="" placeholder="Email" />
-      <button>Enviar</button>
-      </input>
-    </div>
-    <div class="row">
-      <div class="col-6">
-        <span>© CLIENTE 2020 - Todos los derechos reservados</span>
-      </div>
-      <div class="col-6 text-right">
-        <img src="assets/image/data-fiscal.jpg" />
+      <div class="bottom">
+        <div class="row">
+          <div class="col-6">
+            <span>© CLIENTE 2020 - Todos los derechos reservados</span>
+          </div>
+          <div class="col-6 text-right">
+            <img src="assets/image/data-fiscal.jpg" />
+          </div>
+        </div>
       </div>
     </div>
   </footer>
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
     integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
     crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
     crossorigin="anonymous"></script>
+
+  <script src="assets/index.js"></script>
 </body>
 
 </html>

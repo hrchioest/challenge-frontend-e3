@@ -1,0 +1,116 @@
+header {
+  background-color: $color-gray-light;
+
+  @include for-phone-only {
+    nav.navbar {
+      padding: 0;
+    }
+  }
+
+  .menu {
+    background-color: $color-cherry;
+
+    @include for-desktop-up {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    ul > li {
+      padding: 4px 10px;
+
+      &.active {
+        background-color: $color-cherry-shadow;
+        text-transform: uppercase;
+        padding-left: 25px;
+        padding-right: 25px;
+      }
+      & > a {
+        color: $color-white;
+        font-size: 16px;
+        font-weight: 300;
+      }
+    }
+  }
+}
+.logo {
+  font-size: 50px;
+  font-weight: 800;
+  color: $color-cherry;
+
+  @include for-phone-only {
+    font-size: $size-title-submain;
+  }
+}
+
+.search {
+  input,
+  button {
+    border-radius: 20px;
+  }
+  input {
+    padding-left: 25px;
+    box-shadow: -1px 2px 5px 0px #ccc;
+    border: 1px solid #9c9c9c;
+  }
+  button {
+    background-color: white;
+    border-left-color: #ccc;
+    box-shadow: 1px 2px 5px 0px #ccc;
+    padding: 5px 13px 0px 9px;
+    ion-icon {
+      font-size: 23px;
+    }
+  }
+}
+.favorite,
+.account {
+  display: flex;
+  align-items: center;
+  ion-icon {
+    font-size: 28px;
+  }
+}
+
+.favorite {
+  align-items: flex-end;
+}
+
+.account {
+  justify-content: center;
+
+  a {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.cart {
+  span {
+    background-color: $color-cherry;
+    color: $color-white;
+    padding: 1px 6px;
+    font-size: $size-description-alternativo;
+  }
+
+  ion-icon {
+    font-size: 31px;
+  }
+
+  button {
+    position: relative;
+    .cart-badge {
+      border-radius: 50%;
+      position: relative;
+      bottom: 17px;
+    }
+    ion-icon {
+      position: absolute;
+      left: 3px;
+      top: 7px;
+    }
+  }
+}
+.alert-success {
+  background-color: $color-white;
+  border: 2px solid $color-green;
+}

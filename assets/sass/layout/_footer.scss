@@ -1,0 +1,67 @@
+footer {
+  background: $color-gray-dark;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  border-top: 2px solid #e6e6e6;
+
+  .support {
+    margin-top: 10px;
+
+    .icon {
+      color: $color-cherry;
+      font-size: 40px;
+    }
+
+    .description {
+      font-size: $size-description-call;
+      color: $color-cherry;
+      margin-left: 20px;
+      .phone {
+        font-weight: 700;
+      }
+    }
+  }
+
+  .info {
+    margin-top: 15px;
+
+    h5 {
+      font-size: $size-description-principal;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #343434;
+    }
+    a,
+    span {
+      font-size: $size-description-alternativo;
+      color: $color-gray;
+    }
+    form.suscribe {
+      margin-top: 10px;
+      input,
+      button {
+        font-size: $size-description-secondary;
+      }
+      input {
+        border: 1px solid #ccc;
+        border-radius: 0;
+      }
+      button {
+        background-color: $color-cherry;
+        border-radius: 0;
+        color: white;
+      }
+    }
+  }
+
+  .bottom {
+    margin-top: 35px;
+    padding-top: 15px;
+    border-top: 2px solid #e6e6e6;
+
+    span {
+      font-size: $size-description-alternativo;
+      color: $color-gray-footer-light;
+    }
+  }
+}
